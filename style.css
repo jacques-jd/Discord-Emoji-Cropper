@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&display=swap');
 
+:root {
+    --col1:#DEFCF9;
+    --col2:#CADEFC;
+    --col3:#C3BEF0;
+    --col4:#CCA8E9;
+}
+
 body,input{font-family:"Fira sans";}
 
 body {
-    background-color:#DFD3C3;
+    background-color:var(--col3);
 }
 
-h1,h2 {
+h1 {
     font-weight:100;
     text-align:center;
 }
 
-h2 {
-    color:#555;
-}
-
 .card {
-    background-color:#F0ECE3;
+    background-color:var(--col2);
 
     margin:0 auto;
     padding:1em;
@@ -35,7 +38,7 @@ h2 {
 }
 
 #pieces, #btnCrop, #clear, #sourceView, #downloadAll {
-    background-color:#DFD3C3;
+    background-color:var(--col1);
     border-radius:3px;
     padding:0.4em;
     border:none;
@@ -43,12 +46,12 @@ h2 {
     transition:background-color 0.2s;
 }
 
-#btnCrop:hover, #clear:hover, #sourceView:hover {
-    background-color:#C7B198;
+#btnCrop:hover, #clear:hover, #sourceView:hover, #downloadAll:hover {
+    background-color:var(--col3);
 }
 
 #pieces:focus {
-    background-color:#F0ECE3;
+    background-color:var(--col3);
     outline:none;
 }
 
