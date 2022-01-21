@@ -34,7 +34,7 @@ h2 {
     appearance: textfield;
 }
 
-#pieces, #btnCrop, #clear, #sourceView {
+#pieces, #btnCrop, #clear, #sourceView, #downloadAll {
     background-color:#DFD3C3;
     border-radius:3px;
     padding:0.4em;
