@@ -5,21 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Splicer</title>
+    <link rel="stylesheet" href="style.css">
     <script src="cropper.js"></script>
 </head>
 <body>
-    <label for="source">Crop: </label><input type="file" accept="image/*" id="source"><br>
-    <label for="pieces">Into this many pieces: </label><input type="number" id="pieces" placeholder="Pieces"><br>
-    <label for="square">Auto</label><input type="checkbox" id="square"> <br>
-    <input type="button" id="btnCrop" value="Crop!">
-    <p>Image preview: </p>
-    <div id="preview">
-        
+    <h1>Image Splicer</h1>
+    <div class="card">
+        <div class="input">
+            <label for="source" id="sourceView">Select image</label><input type="file" accept="image/*" id="source">
+        </div>
+        <div class="input">
+            <label for="square">Automatically determine amount of pieces</label><input type="checkbox" id="square">
+        </div>
+        <div class="input">
+            <label for="pieces">or manually choose amount of pieces: </label><input type="number" id="pieces" placeholder="Pieces">
+        </div>
+        <div class="input">
+            <input type="button" id="btnCrop" value="Crop">
+            <input type="button" id="clear" value="Clear">
+        </div>
+        <p>Image preview: </p>
+        <div id="preview">
+            
+        </div>
+        <p>Output images: </p>
+        <div id="output">
+            
+        </div>
+        <div class="input"><input type="button" id="downloadAll" value="Download All"></div>
     </div>
-    <p>Output images: </p>
-    <div id="output">
-        
-    </div>
-    <input type="button" id="downloadAll" value="Download All">
 </body>
 </html>

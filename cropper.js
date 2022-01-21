@@ -24,6 +24,9 @@ window.onload = () => {
     dlall = document.querySelector("#downloadAll");
     dlall.style.display = "none";
 
+    if (auto.checked) piecesraw.setAttribute("disabled", ""); 
+    else piecesraw.removeAttribute("disabled");
+
     //when image is selected
     img.uploader.onchange = function(event) {
         //get the list of files selected
@@ -73,12 +76,6 @@ window.onload = () => {
             }
         }
 
-        //this is the auto checkbox
-        auto.onchange = function(){
-            if (!img.height) return;
-            calculatePieces(img, auto, piecesraw);
-        }
-
         //this is where the magic happens
         btnCrop.onclick = function(){
             //if there is no img.width, image hasn't loaded yet
@@ -94,8 +91,8 @@ window.onload = () => {
                 let context = canvas.getContext("2d");
                 console.log(`Making ${img.pieces} pieces the size of ${img.chunk}px each on ${canvas} using ${context}.`);
 
-                //this is the canvas width not image width, the 1.05 is so theres some padding. i could do this with css but it was easier with canvas
-                canvas.width = img.chunk * 1.05;
+                //this is the canvas width not image width
+                canvas.width = img.chunk;
                 canvas.height = img.height;
 
                 //This is what I use to crop the image. it goes 
@@ -109,6 +106,14 @@ window.onload = () => {
             //make the download all button visible once i submit the image
             dlall.style.display = "block";
         }
+    }
+
+    //this is the auto checkbox
+    auto.onchange = function(){
+        if (auto.checked) piecesraw.setAttribute("disabled", ""); 
+        else piecesraw.removeAttribute("disabled");
+        if (!img.height) return true;
+        calculatePieces(img, auto, piecesraw);
     }
 
     //when the download all button is clicked
@@ -144,6 +149,10 @@ window.onload = () => {
             //download
             a.click();
         }
+    }
+
+    document.querySelector("#clear").onclick = function() {
+        output.innerHTML = preview.innerHTML = piecesraw.value = "";
     }
 }
 
